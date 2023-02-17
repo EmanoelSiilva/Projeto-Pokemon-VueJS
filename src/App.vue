@@ -1,26 +1,45 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <TelaHome/>
+  </div>
+  <div class="div-button">
+    <h1>Qual Pokemon irá te escolher?</h1>
+    <Button/>
+  </div>
+  <div>
+    <Footer/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Button from './components/Button.vue';
+import Footer from './components/Footer.vue';
+import TelaHome from './components/TelaHome.vue';
+
+
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+    Footer,
+    TelaHome,
+    Button
+}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+    background-color: #2f2f2f;
+    width: 100%;
+    height: 100%;
+  }
+  h2 {
+    text-align: center;
+  }
+  .div-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-bottom: 55px; */
+  }
 </style>
