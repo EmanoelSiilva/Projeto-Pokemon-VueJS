@@ -24,7 +24,7 @@
         text-transform: uppercase;
         letter-spacing: 1.3px;
         font-weight: 700;
-        color: #FFDE00;
+        color: #FFF;
         background: #3B4CCA;
         background: linear-gradient(90deg, #f00 0%, #263238 100%);
         border: none;

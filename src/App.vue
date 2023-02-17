@@ -2,8 +2,8 @@
   <div>
     <TelaHome/>
   </div>
+  <h1>Qual Pokemon vai te escolher?</h1>
   <div class="div-button">
-    <h1>Qual Pokemon irá te escolher?</h1>
     <Button/>
   </div>
   <div>
@@ -33,13 +33,15 @@ export default {
     width: 100%;
     height: 100%;
   }
-  h2 {
+  h1 {
     text-align: center;
+    color: #FFF;
   }
+
   .div-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* margin-bottom: 55px; */
+    margin-top: 155px;
   }
 </style>
