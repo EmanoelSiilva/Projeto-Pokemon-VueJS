@@ -1,11 +1,11 @@
 import axios from "axios"
 
 const api = axios.create({
-    baseURL: "http://localhost:3000"
+    baseURL: "http://localhost:3000/"
 })
 
 export function getRandomPokemon() {
-  axios.get('/api/pokemon')
+  axios.get('http://localhost:3000/api/pokemon')
     .then((response) => {
       console.log(response.data); // exibe os dados da resposta no console
     })

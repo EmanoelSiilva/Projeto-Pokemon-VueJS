@@ -1,9 +1,10 @@
 <template>
     <div class="btn-start">
-        <button type="submit" class="button" @click="getRandomPokemon()">Descobri</button>
-        <div v-if="pokemon">
-            <h2>{{ pokemon.name }}</h2>
+        <div v-if="pokemon" class="pokemon-info">
+            <h2>{{ pokemon.nome }}</h2>
+            <p>Tipo: {{ pokemon.tipo }}</p>
         </div>
+        <button type="submit" class="button" @click="getRandomPokemon()">Descobri</button>
     </div>
 </template>
 <script>
@@ -19,7 +20,8 @@ import api, { getRandomPokemon } from '../services/api.mjs';
     methods: {
         async getRandomPokemon() {
             try {
-                this.pokemon = await getRandomPokemon()
+                const response = await api.get('/api/pokemon');
+                this.pokemon = response.data;
             } catch (error) {
                 console.log(error)
             }
@@ -29,6 +31,25 @@ import api, { getRandomPokemon } from '../services/api.mjs';
 </script>
 
 <style scoped>
+    .pokemon-info {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+    .pokemon-info h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .pokemon-info p {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
     .btn-start{
         height: 50%;
         display: flex;
@@ -109,5 +130,6 @@ import api, { getRandomPokemon } from '../services/api.mjs';
         height: 300px;
         opacity: 0;
     }
+    
 }
 </style>
