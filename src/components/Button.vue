@@ -33,7 +33,8 @@ import api, { getRandomPokemon } from '../services/api.mjs';
 <style scoped>
     .pokemon-info {
         margin-top: 20px;
-        padding: 10px;
+        margin-bottom: 60px;
+        padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
         background-color: #f5f5f5;
@@ -55,6 +56,7 @@ import api, { getRandomPokemon } from '../services/api.mjs';
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
     }
     .button {
         min-width: 300px;
