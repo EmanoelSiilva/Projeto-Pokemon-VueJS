@@ -1,6 +1,7 @@
 <template>
     <div class="btn-start">
         <div v-if="pokemon" class="pokemon-info">
+            <img :src="pokemonImageUrl" :alt="pokemon.nome">
             <h2>{{ pokemon.nome }}</h2>
             <p>Tipo: {{ pokemon.tipo }}</p>
         </div>
@@ -14,7 +15,8 @@ import api, { getRandomPokemon } from '../services/api.mjs';
     name: "Button",
     data() {
         return {
-            pokemon: null
+            pokemon: null,
+            pokemonImageUrl: null
         }
     },
     methods: {
@@ -22,6 +24,7 @@ import api, { getRandomPokemon } from '../services/api.mjs';
             try {
                 const response = await api.get('/api/pokemon');
                 this.pokemon = response.data;
+                this.pokemonImageUrl = response.data.imageUrl
             } catch (error) {
                 console.log(error)
             }
