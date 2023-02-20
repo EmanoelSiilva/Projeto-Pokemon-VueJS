@@ -1,12 +1,31 @@
 <template>
     <div class="btn-start">
-        <button type="submit" class="button">Descobri</button>
+        <button type="submit" class="button" @click="getRandomPokemon()">Descobri</button>
+        <div v-if="pokemon">
+            <h2>{{ pokemon.name }}</h2>
+        </div>
     </div>
 </template>
 <script>
+import api, { getRandomPokemon } from '../services/api.mjs';
+
   export default {
     name: "Button",
-  }
+    data() {
+        return {
+            pokemon: null
+        }
+    },
+    methods: {
+        async getRandomPokemon() {
+            try {
+                this.pokemon = await getRandomPokemon()
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }
+}
 </script>
 
 <style scoped>
